@@ -13,8 +13,42 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            // Enables ProGuard
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        staging {
+            // Adds .staging suffix to the default applicationId to enable installing different
+            // app versions on the same device or publish the on google play
+            applicationIdSuffix ".staging"
+            // Adds -staging suffix to the version name to differentiate versions on the same device
+            versionNameSuffix "-staging"
+        }
+
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+    }
+
+    flavorDimensions "device"
+    productFlavors {
+        phone {
+            flavorDimension "device"
+        }
+        tablet {
+            flavorDimension "device"
+        }
+    }
+
+    // Makes different apks for different ABIs
+    splits {
+        abi {
+            enable false // Enables the ABIs split mechanism
+            reset() // Reset the list of ABIs to be included to an empty string
+            include 'x86', 'armeabi-v7a' // Indicate which ABIs to be included
+            universalApk true // Indicates whether to package a universal version
         }
     }
 }
@@ -22,4 +56,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'org.xwalk:xwalk_core_library_beta:9.38.208.8' // TODO replace with AC one
 }
