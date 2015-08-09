@@ -5,8 +5,6 @@ import android.os.Bundle;
 import com.example.gradletraining.activity.BaseActivity;
 import com.example.gradletraining.fragment.BrowserFragment;
 
-import example.com.gradletraining.Constants;
-
 public class SecondScreen extends BaseActivity {
 
     private BrowserFragment mBrowserFragment;

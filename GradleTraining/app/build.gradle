@@ -16,11 +16,13 @@ android {
         // Signs staging with debug signing configuration
         staging.initWith(signingConfigs.debug)
 
+        // Release signing configuration
+        // NOTE: These default values will be overridden by 'setupSigningTask'
         release {
-            storeFile file("release.keystore")
-            storePassword "secretpassword"
-            keyAlias "gradleforandroid"
-            keyPassword "secretpassword"
+            storeFile file("/")
+            storePassword ""
+            keyAlias ""
+            keyPassword ""
         }
     }
 
@@ -65,11 +67,11 @@ android {
         // Product flavors by 'deviceType' dimension
         phone {
             flavorDimension "deviceType"
-            applicationId "example.com.gradletraining.phone"
+            applicationId "com.example.gradletraining.phone"
         }
         tablet {
             flavorDimension "deviceType"
-            applicationId "example.com.gradletraining.tablet"
+            applicationId "com.example.gradletraining.tablet"
         }
     }
 
@@ -89,4 +91,31 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:recyclerview-v7:21.0.+'
     compile 'org.xwalk:xwalk_core_library_beta:9.38.208.8' // TODO replace with AC one
+
+    // Adds JUnit dependency only for test buildVariant
+    testCompile 'junit:junit:4.12'
+}
+
+// Setups automatic release APK signing, by overriding the default values.
+// NOTE: This task is scheduled to be executed only before 'package{buildVariant}Release' task
+task setupSigningTask << {
+    def keystorePropsPath = '../../keystore/credentials.properties';
+    if (rootProject.file(keystorePropsPath).exists()) {
+        Properties props = new Properties();
+        props.load(rootProject.file(keystorePropsPath).newDataInputStream())
+        // Overrides default signing config fields
+        android.signingConfigs.release.storeFile = file(props['storeFile'])
+        android.signingConfigs.release.storePassword = props['storePassword']
+        android.signingConfigs.release.keyAlias = props['keyAlias']
+        android.signingConfigs.release.keyPassword = props['keyPassword']
+    } else {
+        println ''
+    }
+}
+// Appends 'setupSigningTask' task to be executed before 'package{buildVariant}Release'
+// i.e. when performing a release build
+tasks.whenTaskAdded { addedTask ->
+    if (addedTask.name.contains("package") && addedTask.name.contains("Release")) {
+        addedTask.dependsOn "setupSigningTask"
+    }
 }
