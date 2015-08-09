@@ -101,6 +101,8 @@ dependencies {
 task setupSigningTask << {
     def keystorePropsPath = '../../keystore/credentials.properties';
     if (rootProject.file(keystorePropsPath).exists()) {
+        println 'Signing Release application...'
+
         Properties props = new Properties();
         props.load(rootProject.file(keystorePropsPath).newDataInputStream())
         // Overrides default signing config fields
@@ -108,8 +110,10 @@ task setupSigningTask << {
         android.signingConfigs.release.storePassword = props['storePassword']
         android.signingConfigs.release.keyAlias = props['keyAlias']
         android.signingConfigs.release.keyPassword = props['keyPassword']
+
+        println 'Release application signed!'
     } else {
-        println ''
+        println "Please, verify the existence of ${keystorePropsPath} directory"
     }
 }
 // Appends 'setupSigningTask' task to be executed before 'package{buildVariant}Release'
