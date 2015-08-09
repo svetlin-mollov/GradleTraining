@@ -3,4 +3,5 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings Tablet</string>
+    <string name="title_activity_second_screen">SecondScreen Tablet</string>
 </resources>

@@ -5,44 +5,75 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "example.com.gradletraining"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
+
+    // Sets up automatic APKs signing
+    signingConfigs {
+        // Signs staging with debug signing configuration
+        staging.initWith(signingConfigs.debug)
+
+        release {
+            storeFile file("release.keystore")
+            storePassword "secretpassword"
+            keyAlias "gradleforandroid"
+            keyPassword "secretpassword"
+        }
+    }
+
+    // Sets up different buildTypes.
+    // NOTE: buildTypes are only for company internal usage
     buildTypes {
+        debug {
+            // Adds .debug suffix to the default applicationId to enable installing different
+            // app versions on the same device or publish them on google play
+            applicationIdSuffix ".debug"
+            // Adds -debug suffix to the version name to differentiate versions on the same device
+            versionNameSuffix "-debug"
+
+            // Signs the APK with debug credentials
+            signingConfig signingConfigs.debug
+        }
+
+        // Inits staging with defaults from debug and overrides applicationIdSuffix and versionNameSuffix
+        staging.initWith(buildTypes.debug)
+        staging {
+            applicationIdSuffix ".staging"
+            versionNameSuffix "-staging"
+
+            // Signs the APK with staging credentials
+            signingConfig signingConfigs.staging
+        }
+
         release {
             // Enables ProGuard
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
 
-        staging {
-            // Adds .staging suffix to the default applicationId to enable installing different
-            // app versions on the same device or publish the on google play
-            applicationIdSuffix ".staging"
-            // Adds -staging suffix to the version name to differentiate versions on the same device
-            versionNameSuffix "-staging"
-        }
-
-        debug {
-            applicationIdSuffix ".debug"
-            versionNameSuffix "-debug"
+            // Signs the APK with release credentials
+            signingConfig signingConfigs.release
         }
     }
 
-    flavorDimensions "device"
+    // Sets up productFlavors.
+    // NOTE: Unlike buildTypes, productFlavors are used for different app variants for publishing
+    flavorDimensions "deviceType"
     productFlavors {
+        // Product flavors by 'deviceType' dimension
         phone {
-            flavorDimension "device"
+            flavorDimension "deviceType"
+            applicationId "example.com.gradletraining.phone"
         }
         tablet {
-            flavorDimension "device"
+            flavorDimension "deviceType"
+            applicationId "example.com.gradletraining.tablet"
         }
     }
 
-    // Makes different apks for different ABIs
+    // Makes different APKs for different ABIs
     splits {
         abi {
             enable false // Enables the ABIs split mechanism
@@ -56,5 +87,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:recyclerview-v7:21.0.+'
     compile 'org.xwalk:xwalk_core_library_beta:9.38.208.8' // TODO replace with AC one
 }

@@ -6,7 +6,7 @@
     </style>
 
     <style name="TextStyleBig">
-        <item name="android:padding">20dp</item>
+        <item name="android:padding">10dp</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
     </style>

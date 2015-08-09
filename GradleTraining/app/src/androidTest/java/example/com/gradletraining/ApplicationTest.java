@@ -1,4 +1,4 @@
-package example.com.gradletraining;
+package com.example.gradletraining;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
