@@ -99,7 +99,7 @@ dependencies {
 // Setups automatic release APK signing, by overriding the default values.
 // NOTE: This task is scheduled to be executed only before 'package{buildVariant}Release' task
 task setupSigningTask << {
-    def keystorePropsPath = '../../keystore/credentials.properties';
+    def keystorePropsPath = '../keystore/credentials.properties';
     if (rootProject.file(keystorePropsPath).exists()) {
         println 'Signing Release application...'
 
@@ -113,7 +113,7 @@ task setupSigningTask << {
 
         println 'Release application signed!'
     } else {
-        println "Please, verify the existence of ${keystorePropsPath} directory"
+        println "Please, verify the existence of ${rootProject.file(keystorePropsPath).absolutePath} directory"
     }
 }
 // Appends 'setupSigningTask' task to be executed before 'package{buildVariant}Release'
