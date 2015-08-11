@@ -106,6 +106,24 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+// Changes applicationId depending on variant combinations
+android.variantFilter { variant ->
+    StringBuilder variantName = new StringBuilder();
+    variant.getFlavors().eachWithIndex { flavor, index ->
+        String flavorName = flavor.name
+        if (index != 0) {
+            flavorName = "${flavorName}".capitalize()
+        }
+        variantName.append(flavorName)
+    }
+    variantName.append("${variant.buildType.name}".capitalize())
+    println "Printing build variant name: " + variantName.toString()
+
+//    if(variant.buildType.name.equals('release') && variant.getFlavors().get(0).name.equals('vanilla')) {
+//        variant.setIgnore(true);
+//    }
+}
+
 // Setups automatic release APK signing, by overriding the default values.
 // NOTE: This task is scheduled to be executed only before 'package{buildVariant}Release' task
 task setupSigningTask << {
