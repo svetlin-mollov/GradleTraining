@@ -62,15 +62,25 @@ android {
 
     // Sets up productFlavors.
     // NOTE: Unlike buildTypes, productFlavors are used for different app variants for publishing
-    flavorDimensions "deviceType"
+    flavorDimensions "brand", "deviceType"
     productFlavors {
+        // Product flavors by app 'brand' dimension
+        bg {
+            dimension "brand"
+        }
+        world {
+            dimension "brand"
+        }
+
         // Product flavors by 'deviceType' dimension
         phone {
-            flavorDimension "deviceType"
+            dimension "deviceType"
+
             applicationId "com.example.gradletraining.phone"
         }
         tablet {
-            flavorDimension "deviceType"
+            dimension "deviceType"
+
             applicationId "com.example.gradletraining.tablet"
         }
     }
@@ -90,7 +100,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:recyclerview-v7:21.0.+'
-    compile 'org.xwalk:xwalk_core_library_beta:9.38.208.8' // TODO replace with AC one
+    compile 'org.xwalk:xwalk_core_library:10.39.235.15'
 
     // Adds JUnit dependency only for test buildVariant
     testCompile 'junit:junit:4.12'
