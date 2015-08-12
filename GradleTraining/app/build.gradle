@@ -62,13 +62,13 @@ android {
 
     // Sets up productFlavors.
     // NOTE: Unlike buildTypes, productFlavors are used for different app variants for publishing
-    flavorDimensions "brand", "deviceType"
+    flavorDimensions "brand", "deviceType", "country"
     productFlavors {
         // Product flavors by app 'brand' dimension
-        bg {
+        local {
             dimension "brand"
         }
-        world {
+        inter {
             dimension "brand"
         }
 
@@ -82,6 +82,11 @@ android {
             dimension "deviceType"
 
             applicationId "com.example.gradletraining.tablet"
+        }
+
+        // Product flavors by 'country' dimension
+        china {
+            dimension "country"
         }
     }
 
@@ -109,19 +114,16 @@ dependencies {
 // Changes applicationId depending on variant combinations
 android.variantFilter { variant ->
     StringBuilder variantName = new StringBuilder();
-    variant.getFlavors().eachWithIndex { flavor, index ->
-        String flavorName = flavor.name
-        if (index != 0) {
-            flavorName = "${flavorName}".capitalize()
-        }
-        variantName.append(flavorName)
+    variant.getFlavors().each { flavor ->
+        variantName.append(flavor.name)
     }
-    variantName.append("${variant.buildType.name}".capitalize())
-    println "Printing build variant name: " + variantName.toString()
+    variantName.append(variant.buildType.name)
+    String variantNameStr = variantName.toString();
 
-//    if(variant.buildType.name.equals('release') && variant.getFlavors().get(0).name.equals('vanilla')) {
-//        variant.setIgnore(true);
-//    }
+    // Remove 'bg' 'china' build variant
+    if (variantNameStr.contains("bg") && variantNameStr.contains("china")) {
+        variant.setIgnore(true);
+    }
 }
 
 // Setups automatic release APK signing, by overriding the default values.
