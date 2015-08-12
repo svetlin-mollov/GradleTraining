@@ -121,7 +121,7 @@ android.variantFilter { variant ->
     String variantNameStr = variantName.toString();
 
     // Remove 'bg' 'china' build variant
-    if (variantNameStr.contains("bg") && variantNameStr.contains("china")) {
+    if (variantNameStr.contains("local") && variantNameStr.contains("china")) {
         variant.setIgnore(true);
     }
 }
