@@ -88,6 +88,9 @@ android {
         china {
             dimension "country"
         }
+        world {
+            dimension "country"
+        }
     }
 
     // Makes different APKs for different ABIs
@@ -111,7 +114,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-// Changes applicationId depending on variant combinations
+// Ignores the unwanted buildVariants
 android.variantFilter { variant ->
     StringBuilder variantName = new StringBuilder();
     variant.getFlavors().each { flavor ->
@@ -120,8 +123,8 @@ android.variantFilter { variant ->
     variantName.append(variant.buildType.name)
     String variantNameStr = variantName.toString();
 
-    // Remove 'bg' 'china' build variant
-    if (variantNameStr.contains("local") && variantNameStr.contains("china")) {
+    // Remove 'local' 'china' build variant combination
+    if (variantNameStr.contains("local") && (variantNameStr.contains("china"))) {
         variant.setIgnore(true);
     }
 }
