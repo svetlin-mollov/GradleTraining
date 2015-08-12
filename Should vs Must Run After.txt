@@ -1,0 +1,7 @@
+When you use the “must run after” ordering rule you specify that taskB must always run after taskA, 
+whenever both taskA and taskB will be run. This is expressed as taskB.mustRunAfter(taskA). 
+The “should run after” ordering rule is similar but less strict as it will be ignored in two situations. 
+Firstly if using that rule introduces an ordering cycle. Secondly when using parallel execution 
+and all dependencies of a task have been satisfied apart from the “should run after” task, then 
+this task will be run regardless of whether its “should run after” dependencies have been run or not. 
+You should use “should run after” where the ordering is helpful but not strictly required.
