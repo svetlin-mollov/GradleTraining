@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$/.." external.system.id="GRADLE" external.system.module.group="GradleTraining" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android-gradle" name="Android-Gradle">
+      <configuration>
+        <option name="GRADLE_PROJECT_PATH" value=":app" />
+      </configuration>
+    </facet>
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="interPhoneChinaDebug" />
+        <option name="SELECTED_TEST_ARTIFACT" value="_android_test_" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleInterPhoneChinaDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileInterPhoneChinaDebugSources" />
+        <option name="ASSEMBLE_TEST_TASK_NAME" value="assembleInterPhoneChinaDebugAndroidTest" />
+        <option name="COMPILE_JAVA_TEST_TASK_NAME" value="compileInterPhoneChinaDebugAndroidTestSources" />
+        <afterSyncTasks>
+          <task>generateInterPhoneChinaDebugAndroidTestSources</task>
+          <task>generateInterPhoneChinaDebugSources</task>
+        </afterSyncTasks>
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/src/main/res;file://$MODULE_DIR$/src/phone/res" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/build/intermediates/classes/interphonechina/debug" />
+    <output-test url="file://$MODULE_DIR$/build/intermediates/classes/androidTest/interphonechina/debug" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/interphonechina/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/interphonechina/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/interphonechina/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/interphonechina/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/interphonechina/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/generated/interphonechina/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChinaDebug/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChinaDebug/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChinaDebug/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChinaDebug/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChinaDebug/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChinaDebug/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChinaDebug/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChina/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChina/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChina/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChina/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChina/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChina/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/interPhoneChina/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/r/androidTest/interphonechina/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/aidl/androidTest/interphonechina/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/buildConfig/androidTest/interphonechina/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/source/rs/androidTest/interphonechina/debug" isTestSource="true" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/rs/androidTest/interphonechina/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/build/generated/res/generated/androidTest/interphonechina/debug" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/inter/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/inter/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/inter/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/inter/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/inter/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/inter/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/inter/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestInter/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestInter/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestInter/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestInter/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestInter/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestInter/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestInter/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/phone/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/phone/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/phone/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/phone/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/phone/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/phone/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/phone/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestPhone/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestPhone/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestPhone/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestPhone/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestPhone/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestPhone/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestPhone/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/china/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/china/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/china/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/china/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/china/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/china/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/china/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestChina/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestChina/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestChina/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestChina/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestChina/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestChina/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTestChina/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/debug/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/debug/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/debug/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/debug/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/debug/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/debug/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/debug/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/res" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/assets" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/aidl" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/jni" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/bundles" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/coverage-instrumented-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/org.xwalk/xwalk_core_library/10.39.235.15/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jacoco" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaResources" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/libs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/ndk" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/proguard" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
+      <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
+    </content>
+    <orderEntry type="jdk" jdkName="Android API 21 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="appcompat-v7-21.0.3" level="project" />
+    <orderEntry type="library" exported="" name="recyclerview-v7-21.0.3" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
+    <orderEntry type="library" exported="" name="HockeySDK-3.5.0" level="project" />
+    <orderEntry type="library" exported="" name="xwalk_core_library-10.39.235.15" level="project" />
+  </component>
+</module>

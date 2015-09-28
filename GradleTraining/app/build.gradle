@@ -1,0 +1,158 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // Sets up automatic APKs signing
+    signingConfigs {
+        // Signs staging with debug signing configuration
+        staging.initWith(signingConfigs.debug)
+
+        // Release signing configuration
+        // NOTE: These default values will be overridden by 'setupSigningTask'
+        release {
+            storeFile file("/")
+            storePassword ""
+            keyAlias ""
+            keyPassword ""
+        }
+    }
+
+    // Sets up different buildTypes.
+    // NOTE: buildTypes are only for company internal usage
+    buildTypes {
+        debug {
+            // Adds .debug suffix to the default applicationId to enable installing different
+            // app versions on the same device or publish them on google play
+            applicationIdSuffix ".debug"
+            // Adds -debug suffix to the version name to differentiate versions on the same device
+            versionNameSuffix "-debug"
+
+            // Signs the APK with debug credentials
+            signingConfig signingConfigs.debug
+        }
+
+        // Inits staging with defaults from debug and overrides applicationIdSuffix and versionNameSuffix
+        staging.initWith(buildTypes.debug)
+        staging {
+            applicationIdSuffix ".staging"
+            versionNameSuffix "-staging"
+
+            // Signs the APK with staging credentials
+            signingConfig signingConfigs.staging
+        }
+
+        release {
+            // Enables ProGuard
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            // Signs the APK with release credentials
+            signingConfig signingConfigs.release
+        }
+    }
+
+    // Sets up productFlavors.
+    // NOTE: Unlike buildTypes, productFlavors are used for different app variants for publishing
+    flavorDimensions "brand", "deviceType", "country"
+    productFlavors {
+        // Product flavors by app 'brand' dimension
+        local {
+            dimension "brand"
+        }
+        inter {
+            dimension "brand"
+        }
+
+        // Product flavors by 'deviceType' dimension
+        phone {
+            dimension "deviceType"
+
+            applicationId "com.example.gradletraining.phone"
+        }
+        tablet {
+            dimension "deviceType"
+
+            applicationId "com.example.gradletraining.tablet"
+        }
+
+        // Product flavors by 'country' dimension
+        china {
+            dimension "country"
+        }
+        world {
+            dimension "country"
+        }
+    }
+
+    // Makes different APKs for different ABIs
+    splits {
+        abi {
+            enable false // Enables the ABIs split mechanism
+            reset() // Reset the list of ABIs to be included to an empty string
+            include 'x86', 'armeabi-v7a' // Indicate which ABIs to be included
+            universalApk true // Indicates whether to package a universal version
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:recyclerview-v7:21.0.+'
+    compile 'org.xwalk:xwalk_core_library:10.39.235.15'
+
+    // Adds JUnit dependency only for test buildVariant
+    testCompile 'junit:junit:4.12'
+}
+
+// Ignores the unwanted buildVariants
+android.variantFilter { variant ->
+    StringBuilder variantName = new StringBuilder();
+    variant.getFlavors().each { flavor ->
+        variantName.append(flavor.name)
+    }
+    variantName.append(variant.buildType.name)
+    String variantNameStr = variantName.toString();
+
+    // Remove 'local' 'china' build variant combination
+    if (variantNameStr.contains("local") && (variantNameStr.contains("china"))) {
+        variant.setIgnore(true);
+    }
+}
+
+// Setups automatic release APK signing, by overriding the default values.
+// NOTE: This task is scheduled to be executed only before 'package{buildVariant}Release' task
+task setupSigningTask << {
+    def keystorePropsPath = '../keystore/credentials.properties';
+    if (rootProject.file(keystorePropsPath).exists()) {
+        println 'Signing Release application...'
+
+        Properties props = new Properties();
+        props.load(rootProject.file(keystorePropsPath).newDataInputStream())
+        // Overrides default signing config fields
+        android.signingConfigs.release.storeFile = file(props['storeFile'])
+        android.signingConfigs.release.storePassword = props['storePassword']
+        android.signingConfigs.release.keyAlias = props['keyAlias']
+        android.signingConfigs.release.keyPassword = props['keyPassword']
+
+        println 'Release application signed!'
+    } else {
+        println "Please, verify the existence of ${rootProject.file(keystorePropsPath).absolutePath} directory"
+    }
+}
+// Appends 'setupSigningTask' task to be executed before 'package{buildVariant}Release'
+// i.e. when performing a release build
+tasks.whenTaskAdded { addedTask ->
+    if (addedTask.name.contains("package") && addedTask.name.contains("Release")) {
+        addedTask.dependsOn "setupSigningTask"
+    }
+}

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GradleTraining Phone</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings Phone</string>
+    <string name="title_activity_second_screen">SecondScreen Phone</string>
+</resources>
